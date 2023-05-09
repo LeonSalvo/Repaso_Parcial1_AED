@@ -127,4 +127,32 @@ public class Lista<T> implements ILista<T> {
     public void setPrimero(Nodo<T> unNodo) {
         this.primero = unNodo;
     }
+
+    public void insertarOrdenado(Nodo<T> nuevoNodo){
+        if (primero == null){
+            primero = nuevoNodo;
+        }else if (primero.getSiguiente() == null && primero != null){
+            if (primero.getEtiqueta().compareTo(nuevoNodo.getEtiqueta()) > 0){
+                nuevoNodo.setSiguiente(primero);
+                primero = nuevoNodo;
+            }else{
+                primero.setSiguiente(nuevoNodo);
+            }
+        }else {
+            Nodo<T> aux = primero.getSiguiente();
+            Nodo<T> auxAnterior = primero;
+            while (aux != null){
+                if (aux.getEtiqueta().compareTo(nuevoNodo.getEtiqueta()) > 0 ){
+                    auxAnterior.setSiguiente(nuevoNodo);
+                    nuevoNodo.setSiguiente(aux);
+                    return;
+                }
+                auxAnterior = aux;
+                aux = aux.getSiguiente();
+            }
+            auxAnterior.setSiguiente(nuevoNodo);
+        }
+
+
+    }
 }
