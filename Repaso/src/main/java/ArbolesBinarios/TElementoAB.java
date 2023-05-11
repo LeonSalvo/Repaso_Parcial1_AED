@@ -130,6 +130,53 @@ public class TElementoAB<T> implements IElementoAB<T>{
 
     @Override
     public IElementoAB eliminar(Comparable unaEtiqueta) {
-        return null;
+        if (unaEtiqueta.compareTo(this.getEtiqueta()) < 0) {
+
+            if (this.getHijoIzq() != null) {
+
+                this.setHijoIzq(this.getHijoIzq().eliminar(unaEtiqueta));
+
+            }
+            return this;
+        }
+        if (unaEtiqueta.compareTo(this.getEtiqueta()) > 0) {
+
+            if (this.getHijoDer() != null) {
+
+                this.setHijoDer(this.getHijoDer().eliminar(unaEtiqueta));
+
+            }
+            return this;
+        }
+
+        return this.quitaElNodo();
+    }
+    
+    private TElementoAB<T> quitaElNodo() {
+
+        if (this.getHijoIzq() == null) {
+            return this.getHijoDer();
+        }
+
+        if (this.getHijoDer() == null) {
+            return this.getHijoIzq();
+        }
+
+        // es un nodo completo
+        TElementoAB<T> hijo = this.getHijoIzq();
+        TElementoAB<T> padre = this;
+
+        while (hijo.getHijoDer() != null) {
+            padre = hijo;
+            hijo = hijo.getHijoDer();
+        }
+
+        if (padre != this) {
+            padre.setHijoDer(hijo.getHijoIzq());
+            hijo.setHijoIzq(hijoIzq);
+        }
+
+        hijo.setHijoDer(hijoDer);
+        return hijo;
     }
 }
