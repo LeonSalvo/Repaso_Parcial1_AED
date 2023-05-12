@@ -179,4 +179,26 @@ public class TElementoAB<T> implements IElementoAB<T>{
         hijo.setHijoDer(hijoDer);
         return hijo;
     }
+
+    public int tamanio(){
+        int tamanio = 1;
+        if (hijoIzq != null){
+            tamanio += hijoIzq.tamanio();
+        }
+        if (hijoDer != null){
+            tamanio += hijoDer.tamanio();
+        }
+        return tamanio;
+    }
+    public int obtenerAltura(){
+        int cont1 = 0;
+        int cont2 = 0;
+        if (hijoIzq != null){
+            cont1 += hijoIzq.obtenerAltura();
+        }
+        if (hijoDer != null){
+            cont2 += hijoDer.obtenerAltura();
+        }
+        return Integer.max(cont1, cont2) + 1;
+    }
 }

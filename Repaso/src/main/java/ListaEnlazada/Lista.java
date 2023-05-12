@@ -149,7 +149,5 @@ public class Lista<T> implements ILista<T> {
             }
             auxAnterior.setSiguiente(nuevoNodo);
         }
-
-
     }
 }
