@@ -1,4 +1,4 @@
-package org.example.TDATrie;
+package TDATrie;
 
 
 import java.util.LinkedList;
