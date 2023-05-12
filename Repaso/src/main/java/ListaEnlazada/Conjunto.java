@@ -1,4 +1,6 @@
-public class Conjunto<T> implements IConjunto<T> {
+package ListaEnlazada;
+
+public class Conjunto<T> implements IConjunto<T>{
 
 
     private Nodo<T> primero;
@@ -20,7 +22,6 @@ public class Conjunto<T> implements IConjunto<T> {
         }
     }
 
-    @Override
     public Nodo<T> buscar(Comparable clave) {
         Nodo temporal = primero;
         while (temporal != null){
@@ -30,12 +31,10 @@ public class Conjunto<T> implements IConjunto<T> {
         }
         return null;
     }
-    @Override
     public boolean eliminar(Comparable clave) {
         return false;
     }
 
-    @Override
     public String imprimir() {
         return null;
     }

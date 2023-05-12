@@ -68,7 +68,6 @@ public class Lista<T> implements ILista<T> {
         return false;
     }
 
-    @Override
     public String imprimir() {
         String aux = "";
         if (!esVacia()) {
