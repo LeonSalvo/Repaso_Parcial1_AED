@@ -50,8 +50,12 @@ public class TArbolBB<T> implements IArbolBB<T>{
 
     @Override
     public void eliminar(Comparable unaEtiqueta) {
-
+        if(raiz == null){
+            return "Árbol vacío"
+        }
+        return raiz.eliminar(unaEtiqueta)
     }
+    
     public boolean esVacio() {
         return (raiz == null);
     }
