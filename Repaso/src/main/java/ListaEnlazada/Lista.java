@@ -115,9 +115,7 @@ public class Lista<T> implements ILista<T> {
     }
 
     @Override
-    public boolean esVacia() {
-        return primero == null;
-    }
+    public boolean esVacia() {return primero == null;}
 
     public Nodo<T> getPrimero() {
         return primero;

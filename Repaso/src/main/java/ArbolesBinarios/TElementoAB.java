@@ -125,7 +125,7 @@ public class TElementoAB<T> implements IElementoAB<T>{
 
     @Override
     public T getDatos() {
-        return null;
+        return datos;
     }
 
     @Override
